@@ -11,6 +11,14 @@ pinned: false
 
 # HJS v0.5 — JEP-aware Accountability Archive for AI Agents
 
+## Public Resources
+
+- JEP v0.6 Repository: https://github.com/hjs-spec/jep-v06
+- HJS v0.5 Repository: https://github.com/hjs-spec/hjs-05
+- JAC v0.5 Repository: https://github.com/hjs-spec/jac-agent-02
+- JEP v0.6 Spec Demo: https://huggingface.co/spaces/yuqiangJEP/jep-v06-spec-demo/tree/main
+- JEP v0.6 Conformance Suite: https://huggingface.co/datasets/yuqiangJEP/jep-v06-conformance-suite
+
 **Archive, privacy, receipt, and evidence-lifecycle companion layer for JEP v0.6.**
 
 This repository hosts the interactive reference implementation of **HJS v0.5**.
