@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hjs.org/schemas/hjs-receipt-bundle-0.5.schema.json",
+  "title": "HJS v0.5 Receipt Bundle",
+  "type": "object",
+  "required": ["hjs", "type", "jep_event", "archive_receipt"],
+  "properties": {
+    "hjs": { "type": "string", "const": "0.5" },
+    "type": { "type": "string", "const": "hjs.receipt_bundle" },
+    "jep_event": { "type": "object" },
+    "archive_receipt": { "$ref": "hjs-archive-receipt.schema.json" }
+  }
+}

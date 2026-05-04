@@ -1,0 +1,11 @@
+{
+  "jep": "1",
+  "verb": "J",
+  "who": "did:example:agent-789",
+  "when": 1742345678,
+  "what": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+  "nonce": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "aud": "https://archive.example.com",
+  "ref": null,
+  "sig": "PLACEHOLDER_DETACHED_JWS"
+}

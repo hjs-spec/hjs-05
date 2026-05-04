@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hjs.org/schemas/hjs-redaction-manifest-0.5.schema.json",
+  "title": "HJS v0.5 Redaction Manifest",
+  "type": "object",
+  "required": ["mode", "redacted_fields", "retained_hashes"],
+  "properties": {
+    "mode": { "type": "string" },
+    "redacted_fields": { "type": "array", "items": { "type": "string" } },
+    "retained_hashes": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+:[0-9a-f]+$" } }
+  }
+}

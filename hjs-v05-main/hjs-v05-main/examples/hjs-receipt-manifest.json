@@ -1,0 +1,21 @@
+{
+  "hjs": "0.5",
+  "type": "hjs.archive_receipt",
+  "profile": "jep-profile:hjs-archive:0",
+  "archive_actor": "did:example:hjs-archive",
+  "jep_event_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "receipt_time": 1742345800,
+  "archive_time": 1742345900,
+  "retention_policy": "default-retention",
+  "redaction_manifest": {
+    "mode": "manifest",
+    "redacted_fields": ["what.evidence.raw_text"],
+    "retained_hashes": ["sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"]
+  },
+  "selective_disclosure_manifest": {
+    "mode": "audience-bound",
+    "audience_bound": true,
+    "disclosed_fields": ["jep", "verb", "who", "when", "what"]
+  },
+  "evidence_refs": []
+}

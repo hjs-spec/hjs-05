@@ -1,0 +1,9 @@
+{
+  "hjs": "0.5",
+  "type": "hjs.behavior_record",
+  "actor": "did:example:agent-789",
+  "action": "summarize-document",
+  "input_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "output_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+  "created_at": 1742345678
+}

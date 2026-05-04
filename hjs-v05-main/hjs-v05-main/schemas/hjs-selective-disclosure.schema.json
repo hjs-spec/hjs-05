@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hjs.org/schemas/hjs-selective-disclosure-0.5.schema.json",
+  "title": "HJS v0.5 Selective Disclosure Manifest",
+  "type": "object",
+  "required": ["mode", "audience_bound", "disclosed_fields"],
+  "properties": {
+    "mode": { "type": "string" },
+    "audience_bound": { "type": "boolean" },
+    "disclosed_fields": { "type": "array", "items": { "type": "string" } }
+  }
+}

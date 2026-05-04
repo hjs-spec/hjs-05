@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hjs.org/schemas/hjs-archive-receipt-0.5.schema.json",
+  "title": "HJS v0.5 Archive Receipt",
+  "type": "object",
+  "required": ["hjs", "type", "profile", "archive_actor", "jep_event_hash", "receipt_time", "archive_time"],
+  "properties": {
+    "hjs": { "type": "string", "const": "0.5" },
+    "type": { "type": "string", "const": "hjs.archive_receipt" },
+    "profile": { "type": "string", "const": "jep-profile:hjs-archive:0" },
+    "archive_actor": { "type": "string" },
+    "jep_event_hash": { "type": "string", "pattern": "^[a-z0-9-]+:[0-9a-f]+$" },
+    "receipt_time": { "type": "integer" },
+    "archive_time": { "type": "integer" },
+    "retention_policy": { "type": "string" },
+    "redaction_manifest": { "$ref": "hjs-redaction-manifest.schema.json" },
+    "selective_disclosure_manifest": { "$ref": "hjs-selective-disclosure.schema.json" },
+    "evidence_refs": { "type": "array" },
+    "boundary": { "type": "object" }
+  }
+}
