@@ -1,21 +1,21 @@
 {
-  "hjs": "0.5",
-  "type": "hjs.archive_receipt",
-  "profile": "jep-profile:hjs-archive:0",
-  "archive_actor": "did:example:hjs-archive",
-  "jep_event_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-  "receipt_time": 1742345800,
-  "archive_time": 1742345900,
-  "retention_policy": "default-retention",
-  "redaction_manifest": {
-    "mode": "manifest",
-    "redacted_fields": ["what.evidence.raw_text"],
-    "retained_hashes": ["sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"]
-  },
-  "selective_disclosure_manifest": {
-    "mode": "audience-bound",
-    "audience_bound": true,
-    "disclosed_fields": ["jep", "verb", "who", "when", "what"]
-  },
-  "evidence_refs": []
+  "hjs_receipt": "1",
+  "profile": "HJS-Core-1",
+  "created_at": 1743398402,
+  "root_event": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+  "events": [
+    {
+      "event_hash": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+      "uri": "https://evidence.example/events/6666"
+    }
+  ],
+  "records": [
+    {
+      "digest": "sha256:bdcc830a1d2dd8c334163b7fcbaad4584a7b7612e001050945dc3a954525d4c7",
+      "media_type": "application/json",
+      "uri": "https://evidence.example/records/hjs-core1-tool-call"
+    }
+  ],
+  "evidence": [],
+  "external_refs": []
 }

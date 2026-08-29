@@ -4,11 +4,7 @@ import uuid
 import time
 import hashlib
 import base64
-try:
-    from canonicaljson import encode_canonical_json
-except Exception:
-    def encode_canonical_json(obj):
-        return json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+from hjs_jcs import canonicalize_jcs
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 from cryptography.hazmat.primitives import serialization
 from cryptography.exceptions import InvalidSignature
@@ -126,7 +122,7 @@ class HJSEvent:
     def canonicalize(self):
         """RFC 8785 JCS — Section 4.1: sig computed over canonicalized data"""
         payload = {k: v for k, v in self.to_dict(include_sig=False).items()}
-        return encode_canonical_json(payload)
+        return canonicalize_jcs(payload)
     
     def check_immutability(self, modified_dict):
         """
@@ -184,7 +180,7 @@ class HJSValidator:
             return False, f"RULE 1 FAILED: Invalid public key: {str(e)}"
         
         payload_dict = {k: v for k, v in event_dict.items() if k != "sig"}
-        payload_bytes = encode_canonical_json(payload_dict)
+        payload_bytes = canonicalize_jcs(payload_dict)
         
         padding_needed = 4 - (len(signature_b64) % 4)
         if padding_needed != 4:
@@ -234,7 +230,7 @@ def algorithm_tagged_digest(content, alg="sha256"):
 
 def compute_event_hash(event_dict):
     """Compute JEP-style event_hash over the full signed event object."""
-    return algorithm_tagged_digest(encode_canonical_json(event_dict))
+    return algorithm_tagged_digest(canonicalize_jcs(event_dict))
 
 
 def now_unix():

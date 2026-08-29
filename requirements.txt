@@ -1,4 +1,4 @@
 gradio>=5.20.0
-canonicaljson
+jcs==0.2.1
 cryptography
 pytest

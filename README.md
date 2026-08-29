@@ -52,6 +52,23 @@ HJS v0.5 does **not** redefine JEP-Core verbs, signatures, event hashes, validat
 - JEP-aware archive store and receipt validator classes
 - Tests for archive receipt binding and boundary preservation
 
+## HJS-Core-1 behavior-record digest path
+
+The implementation follows `draft-wang-hjs-accountability-05` section 4.5:
+
+1. validate the minimal HJS-Core-1 behavior-record structure;
+2. canonicalize the entire top-level JSON object with RFC 8785 JCS;
+3. compute SHA-256 over the canonical UTF-8 bytes;
+4. represent the HJS/JEP digest as `sha256:<lowercase-hex>`.
+
+No field is excluded from the digest input. Explicit null values are retained.
+The implementation uses `jcs==0.2.1`; it does not use Python's standard JSON
+serializer as a substitute for RFC 8785.
+
+Pinned HJS and external APS cross-run fixtures are under `fixtures/`. The
+cross-run report preserves both the pre-fix differences and post-fix results
+under `reports/interop/`.
+
 ## Run locally
 
 ```bash
