@@ -16,6 +16,9 @@ HJS v0.5 can:
 - reference evidence through digest-style references;
 - preserve privacy modes for human identifiers;
 - validate receipt-to-event hash binding.
+- compute HJS-Core-1 behavior-record digests over the whole RFC 8785
+  JCS-canonicalized top-level JSON object;
+- reproduce pinned canonical bytes and SHA-256 outputs across implementations.
 
 ## Boundary
 
@@ -48,6 +51,6 @@ JAC may compose JEP events and HJS archive receipts into causality or accountabi
 ## Future work
 
 - Full JEP v0.6 validation-result integration.
-- HJS archive profile test vectors.
+- Additional HJS archive profile test vectors.
 - Selective disclosure conformance suite.
 - Automated integration with JEP-Conformance.

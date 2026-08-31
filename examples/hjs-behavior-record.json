@@ -1,9 +1,58 @@
 {
-  "hjs": "0.5",
-  "type": "hjs.behavior_record",
-  "actor": "did:example:agent-789",
-  "action": "summarize-document",
-  "input_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
-  "output_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
-  "created_at": 1742345678
+  "hjs_record": "1",
+  "record_type": "behavior",
+  "agent": {
+    "id": "did:example:agent-789",
+    "role": "planner",
+    "deployment_id": "agent-runtime-42"
+  },
+  "created_at": 1743398400,
+  "action": {
+    "type": "tool_call",
+    "name": "calendar.create_event"
+  },
+  "model": {
+    "provider": "example-ai",
+    "model_id": "example-model-family",
+    "deployment_id": "example-deployment"
+  },
+  "evidence": {
+    "inputs": [
+      {
+        "kind": "prompt",
+        "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+        "media_type": "text/plain",
+        "redaction": "digest-only"
+      }
+    ],
+    "outputs": [
+      {
+        "kind": "tool_request",
+        "digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+        "media_type": "application/json",
+        "redaction": "partial"
+      }
+    ]
+  },
+  "policy_checks": [
+    {
+      "policy_id": "example-policy-1",
+      "policy_version": "2026-04",
+      "result": "pass",
+      "rationale_digest": "sha256:3333333333333333333333333333333333333333333333333333333333333333"
+    }
+  ],
+  "human_participants": [
+    {
+      "role": "user",
+      "reference_type": "salted_digest",
+      "reference": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+      "privacy_mode": "digest-only",
+      "salt_holder": "did:example:hjs-escrow"
+    }
+  ],
+  "risk": {
+    "level": "medium",
+    "taxonomy": "hjs-risk-v1"
+  }
 }

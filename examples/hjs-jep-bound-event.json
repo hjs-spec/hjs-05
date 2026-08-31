@@ -2,10 +2,21 @@
   "jep": "1",
   "verb": "J",
   "who": "did:example:agent-789",
-  "when": 1742345678,
-  "what": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
-  "nonce": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
-  "aud": "https://archive.example.com",
+  "when": 1743398400,
+  "what": "sha256:bdcc830a1d2dd8c334163b7fcbaad4584a7b7612e001050945dc3a954525d4c7",
+  "nonce": "84d8c175-7b03-4b8d-9d27-1234abcd5678",
+  "aud": "https://platform.example.com",
   "ref": null,
+  "ext": {
+    "https://hjs.org/receipt": {
+      "profile": "HJS-Core-1",
+      "record_type": "hjs-behavior-record",
+      "record_digest": "sha256:bdcc830a1d2dd8c334163b7fcbaad4584a7b7612e001050945dc3a954525d4c7",
+      "media_type": "application/json"
+    }
+  },
+  "ext_crit": [
+    "https://hjs.org/receipt"
+  ],
   "sig": "PLACEHOLDER_DETACHED_JWS"
 }

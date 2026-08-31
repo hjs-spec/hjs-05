@@ -1,0 +1,71 @@
+{
+  "source_repository": "Agent-Authority-Conformance/aps-conformance-suite",
+  "source_commit": "70d503ffd5f29d84f2100731bd0511667e851131",
+  "source_files": [
+    "fixtures/canonical-bytes/canonical-bytes-jcs-v1.json",
+    "fixtures/canonical-bytes/canonical-bytes-jcs-v2.json"
+  ],
+  "input_rule": "Canonicalize the input member exactly as written.",
+  "vectors": [
+    {
+      "name": "float-tenth",
+      "input": {"value": 0.1},
+      "canonical_bytes_hex": "7b2276616c7565223a302e317d",
+      "canonical_sha256": "097a678e9d1339735cc744964f1c2b1271b2e650d7c59c72d2ff1c93064ceb6e"
+    },
+    {
+      "name": "float-1e21-boundary",
+      "input": {"value": 1e+21},
+      "canonical_bytes_hex": "7b2276616c7565223a31652b32317d",
+      "canonical_sha256": "776bf0d292f3767fdfca3fdc9683d0ba51886b8e6e79cd228a41bafcfa9a1a6f"
+    },
+    {
+      "name": "negative-zero",
+      "input": {"value": 0},
+      "canonical_bytes_hex": "7b2276616c7565223a307d",
+      "canonical_sha256": "23d7b286bd429460b92a2a1c21b6afc34110446c5034c17363fda363aa0a7c5d"
+    },
+    {
+      "name": "integer-above-2pow53",
+      "input": {"value": 9007199254740994},
+      "canonical_bytes_hex": "7b2276616c7565223a393030373139393235343734303939347d",
+      "canonical_sha256": "ab21889a153140e1e3f9d33a98584898dad088dd462faa45c36b5686cf76aee3"
+    },
+    {
+      "name": "small-exponent-vs-decimal",
+      "input": {"exp": 1e-7, "dec": 0.000001},
+      "canonical_bytes_hex": "7b22646563223a302e3030303030312c22657870223a31652d377d",
+      "canonical_sha256": "4ecf258561293513519a28337ef76c2ebb21c28cbcb13cf2def91616edab7de1"
+    },
+    {
+      "name": "astral-key-ordering",
+      "input": {"𝌆": 2, "｡": 1},
+      "canonical_bytes_hex": "7b22f09d8c86223a322c22efbda1223a317d",
+      "canonical_sha256": "0ed25e94bd02f7ca63a6019a9671e12af3ce4b0ed0233c786ea424c9dd322047"
+    },
+    {
+      "name": "nfd-key-used-as-given",
+      "input": {"café": 1, "plain": 2},
+      "canonical_bytes_hex": "7b2263616665cc81223a312c22706c61696e223a327d",
+      "canonical_sha256": "05ba6cbd8fd6ef6e0b64b4cb3d907bb9521369d0f50cb31d55e002460eef77df"
+    },
+    {
+      "name": "nested-object-and-array",
+      "input": {"outer": {"b": 2, "a": 1}, "arr": [3, 1, 2]},
+      "canonical_bytes_hex": "7b22617272223a5b332c312c325d2c226f75746572223a7b2261223a312c2262223a327d7d",
+      "canonical_sha256": "be6fc370ca7efc25ae4b5ee7736507cbbac8fbc8278cb3371d1b8020a2bd0ca3"
+    },
+    {
+      "name": "integer-2pow60-inside-int64",
+      "input": {"value": 1152921504606846976},
+      "canonical_bytes_hex": "7b2276616c7565223a313135323932313530343630363834373030307d",
+      "canonical_sha256": "001814306319dfed540de7a22f61e88baf0288ebe916380796e8995d5db5eb00"
+    },
+    {
+      "name": "integer-2pow68-above-int64",
+      "input": {"value": 295147905179352825856},
+      "canonical_bytes_hex": "7b2276616c7565223a3239353134373930353137393335323833303030307d",
+      "canonical_sha256": "57c82398dfd8be4a4ac903d1d2d01beee4c1d7179c9a5afc574bdf972646783b"
+    }
+  ]
+}
