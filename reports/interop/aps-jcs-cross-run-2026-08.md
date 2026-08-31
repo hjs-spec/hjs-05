@@ -101,3 +101,23 @@ manifest resolve to the same pinned digest.
 The post-fix result changes only the canonicalization implementation and the
 examples/fixtures needed to exercise the published draft. It does not change
 the HJS behavior-record digest boundary or add APS-specific behavior.
+
+## External cross-run record
+
+The Agent Authority Conformance lab published an attributed cross-run record
+for these pinned artifacts at APS repository commit
+`abfbdd3cd2ebd2302d315a12f215cf89f11ec873`:
+
+- HJS `jcs==0.2.1` over the ten APS vectors: 10/10 byte and digest matches,
+  recorded from the HJS-side run and reproduced from the pinned HJS path.
+- Trail of Bits `rfc8785==0.1.4` over the three HJS vectors: 3/3 byte and
+  digest matches, recorded as an independent witness.
+- `agent-passport-system==4.5.1` `canonicalizeJCS` over the three HJS vectors:
+  3/3 byte and digest matches, recorded as an APS author-produced witness.
+
+The APS record holds the HJS artifacts by pinned reference and SHA-256 rather
+than copying them. It also limits its claims to the pinned cases and does not
+state an end-to-end conformance verdict.
+
+Pinned APS record:
+https://github.com/Agent-Authority-Conformance/aps-conformance-suite/tree/abfbdd3cd2ebd2302d315a12f215cf89f11ec873/interop/hjs-bb6be62
