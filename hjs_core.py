@@ -157,7 +157,13 @@ class HJSEvent:
         original = (
             self._signed_dict if self._signed_dict is not None else self.to_dict()
         )
-        equal = original == modified_dict
+        try:
+            # Python object equality conflates true and 1; signed JCS bytes do not.
+            equal = isinstance(modified_dict, dict) and core.canonicalize(
+                original
+            ) == core.canonicalize(modified_dict)
+        except (ValueError, TypeError, core.ValidationFault):
+            equal = False
         return equal, (
             "Signed members unchanged"
             if equal
