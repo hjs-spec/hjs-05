@@ -146,6 +146,20 @@ def test_archive_store_copies_inputs_outputs_and_preserves_first_receipt():
     assert store.ingest_jep_event(original, archive_actor="another-actor") == expected
 
 
+def test_immutability_compares_signed_bytes_not_python_numeric_equality():
+    signer = HJSSigner()
+    builder = HJSEvent("J", "did:example:agent", {"claim": "decision", "value": 1})
+    event = builder.sign(signer)
+    changed = deepcopy(event)
+    changed["what"]["value"] = True
+    assert event == changed  # Python equality is insufficient for this check.
+    assert not builder.check_immutability(changed)[0]
+    changed["what"]["value"] = 1.0
+    assert builder.check_immutability(changed)[0]  # Same canonical JSON number.
+    changed["what"]["value"] = float("nan")
+    assert not builder.check_immutability(changed)[0]
+
+
 @pytest.mark.parametrize(
     "field,value",
     [
